@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dulce Tradición</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background:#f5f0e6;
+    color:#4a3a2a;
+}
+
+/* NAVBAR */
+nav{
+    background:#efe6d6;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+nav h1{
+    font-family: 'Playfair Display', serif;
+    font-size:28px;
+    color:#6a8f3c;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav ul li{
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    background:url("https://images.unsplash.com/photo-1607082349566-1873421e1c6c") center/cover no-repeat;
+    height:350px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero div{
+    background:rgba(0,0,0,0.5);
+    padding:30px;
+    border-radius:12px;
+}
+
+.hero h2{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+}
+
+.hero button{
+    margin-top:15px;
+    padding:10px 25px;
+    border:none;
+    border-radius:20px;
+    background:#6a8f3c;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* SECCIONES */
+section{
+    padding:50px 80px;
+    text-align:center;
+}
+
+section h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:30px;
+}
+
+/* BENEFICIOS */
+.beneficios{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+}
+
+.beneficio{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    width:180px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+    font-weight:600;
+}
+
+/* PRODUCTOS */
+.productos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card .info{
+    padding:15px;
+}
+
+.card h3{
+    font-family:'Playfair Display', serif;
+}
+
+.card p{
+    margin:8px 0;
+}
+
+.card button{
+    margin-top:10px;
+    padding:8px 20px;
+    border:none;
+    background:#6a8f3c;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* SOBRE NOSOTROS */
+.sobre{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.sobre img{
+    width:40%;
+    border-radius:15px;
+}
+
+.sobre div{
+    text-align:left;
+}
+
+/* FOOTER */
+footer{
+    background:#6a8f3c;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h1>Dulce Tradición</h1>
+    <ul>
+        <li>Inicio</li>
+        <li>Productos</li>
+        <li>Sobre Nosotros</li>
+        <li>Contacto</li>
+    </ul>
+</nav>
+
+<div class="hero" style="background:url('images/hero.jpg') center/cover no-repeat;">
+    <div>
+        <h2>Postres Saludables & Deliciosos</h2>
+        <p>Disfruta sin culpas, vive más saludable</p>
+        <button>Ver Productos</button>
+    </div>
+</div>
+
+<section>
+    <h2>¡Bienvenidos a Dulce Tradición!</h2>
+    <p>Tu mejor opción en postres sin azúcar y sin gluten. Sabor tradicional, versión saludable.</p>
+</section>
+
+<section>
+    <div class="beneficios">
+        <div class="beneficio">❤️ Sin Azúcar</div>
+        <div class="beneficio">🌾 Sin Gluten</div>
+        <div class="beneficio">🌿 100% Natural</div>
+    </div>
+</section>
+
+<section>
+    <h2>Nuestros Productos</h2>
+    <div class="productos">
+
+        <div class="card">
+            <img src="images/galletas.jpg">
+            <div class="info">
+                <h3>Galletas de Avena</h3>
+                <p>Deliciosas galletas sin azúcar, ideales para un snack saludable.</p>
+                <p><strong>Precio: $20</strong></p>
+                <button>Ver más</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/cookie.jpg">
+            <div class="info">
+                <h3>Cookie de Vainilla</h3>
+                <p>Suaves, aromáticas y totalmente libres de gluten.</p>
+                <p><strong>Precio: $30</strong></p>
+                <button>Ver más</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/panque.jpg">
+            <div class="info">
+                <h3>Panqué de Manzana</h3>
+                <p>Panqué artesanal de manzana, saludable y lleno de sabor.</p>
+                <p><strong>Precio: $100</strong></p>
+                <button>Ver más</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Sobre Nosotros</h2>
+    <div class="sobre">
+        <img src="images/sobre.jpg">
+        <div>
+            <p>
+                En Dulce Tradición nos especializamos en crear postres saludables que conservan el
+                sabor tradicional. Usamos ingredientes naturales, sin azúcar y sin gluten, para
+                ofrecerte una experiencia deliciosa y consciente.
+            </p>
+            <br>
+            <button style="padding:8px 20px;border:none;background:#6a8f3c;color:white;border-radius:20px;">
+                Más información
+            </button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Dulce Tradición – Proyecto Escolar
+</footer>
+
+</body>
+</html> 
