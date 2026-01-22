@@ -45,7 +45,7 @@ nav ul li{
 
 /* HERO */
 .hero{
-    background:url("images/hero.jpg") center/cover no-repeat;
+    background:url("https://images.unsplash.com/photo-1607082349566-1873421e1c6c") center/cover no-repeat;
     height:350px;
     display:flex;
     align-items:center;
@@ -168,26 +168,134 @@ footer{
     text-align:center;
     padding:15px;
 }
+/* MODAL CONTACTO */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:9999;
+}
+
+.modal-overlay.active{
+  display:flex;
+}
+
+.modal-card{
+  width:min(850px, 95vw);
+  background:#fff;
+  border-radius:16px;
+  padding:22px 22px 18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  position:relative;
+  text-align:left;
+}
+
+.modal-card h2{
+  font-family:'Playfair Display', serif;
+  margin-bottom:6px;
+  color:#4a3a2a;
+}
+
+.modal-sub{
+  margin:0 0 14px;
+  color:#6b5a47;
+}
+
+.modal-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  border:none;
+  background:#f2f2f2;
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:12px;
+  margin-top:10px;
+}
+
+.contact-item{
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:12px;
+  background:#fafafa;
+}
+
+.contact-label{
+  font-weight:600;
+  color:#6a8f3c;
+  margin-bottom:4px;
+}
+
+.contact-value{
+  font-weight:600;
+  color:#4a3a2a;
+}
+
+.contact-small{
+  font-size:12px;
+  color:#7a6a58;
+  margin-top:3px;
+}
+
+.contact-cta{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:14px;
+}
+
+.cta-btn{
+  padding:10px 16px;
+  border:none;
+  border-radius:12px;
+  background:#6a8f3c;
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.cta-note{
+  color:#6b5a47;
+  font-size:13px;
+}
+
+@media (max-width:700px){
+  .contact-grid{ grid-template-columns:1fr; }
+}
+
 </style>
 </head>
 
 <body>
 
 <nav>
-    <h1>Dulce Tradición</h1>
-    <ul>
-        <li>Inicio</li>
-        <li>Productos</li>
-        <li>Sobre Nosotros</li>
-        <li>Contacto</li>
-    </ul>
+  <h1>Dulce Tradición</h1>
+  <ul>
+    <li id="btnInicio">Inicio</li>
+    <li id="btnProductos">Productos</li>
+    <li id="btnSobre">Sobre Nosotros</li>
+    <li id="btnContacto">Contacto</li>
+  </ul>
 </nav>
 
 <div class="hero" style="background:url('images/hero.jpg') center/cover no-repeat;">
     <div>
         <h2>Postres Saludables & Deliciosos</h2>
         <p>Disfruta sin culpas, vive más saludable</p>
-        <button>Ver Productos</button>
+       <button class="btnVerMas">Ver más</button>
+
     </div>
 </div>
 
@@ -262,7 +370,118 @@ footer{
 <footer>
     © 2026 Dulce Tradición – Proyecto Escolar
 </footer>
+<!-- MODAL CONTACTO -->
+<div id="contactModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="modal-close" id="closeModal" aria-label="Cerrar">✕</button>
+
+    <h2 id="contactTitle">Contacto – Dulce Tradición</h2>
+    <p class="modal-sub">¿Quieres hacer un pedido o pedir información? Escríbenos y te respondemos rápido.</p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-value">+52 (625) 842-5442</div>
+        <div class="contact-small">Atención rápida</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-label">Correo</div>
+        <div class="contact-value">dulcetradicion695@gmail.com</div>
+        <div class="contact-small">Cotizaciones y pedidos</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-label">Instagram</div>
+        <div class="contact-value">@dulcetradicion</div>
+        <div class="contact-small">Fotos y novedades</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-label">Ubicación</div>
+        <div class="contact-value">Cuauhtemoc, CH (Entrega local)</div>
+        <div class="contact-small">Pedidos con anticipación</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-label">Horario</div>
+        <div class="contact-value">Lun–Sáb: 9am–7pm</div>
+        <div class="contact-small">Domingo: 10am–4pm</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-label">Pedidos</div>
+        <div class="contact-value">24–48 hrs antes</div>
+        <div class="contact-small">Personalizamos</div>
+      </div>
+    </div>
+
+    <div class="contact-cta">
+      <button class="cta-btn" id="copyContact">Copiar contacto</button>
+      <span class="cta-note" id="copyNote"></span>
+    </div>
+  </div>
+</div>
+<script>
+  const modal = document.getElementById("contactModal");
+  const closeBtn = document.getElementById("closeModal");
+  const copyBtn = document.getElementById("copyContact");
+  const copyNote = document.getElementById("copyNote");
+
+  function openModal(){
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden","false");
+  }
+
+  function closeModal(){
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden","true");
+  }
+
+  // Abrir al clic en menú
+  document.getElementById("btnInicio").addEventListener("click", openModal);
+  document.getElementById("btnProductos").addEventListener("click", openModal);
+  document.getElementById("btnSobre").addEventListener("click", openModal);
+  document.getElementById("btnContacto").addEventListener("click", openModal);
+
+  // Abrir al clic en cualquier producto
+  document.querySelectorAll(".btnVerMas").forEach(btn => {
+    btn.addEventListener("click", openModal);
+  });
+
+  // Cerrar
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if(e.target === modal) closeModal();
+  });
+
+  // Copiar contacto (se ve pro en presentación)
+  copyBtn.addEventListener("click", async () => {
+    const texto = 
+`Dulce Tradición
+WhatsApp: +1 (000) 000-0000
+Correo: dulcetradicion@gmail.com
+Instagram: @dulcetradicion
+Ubicación: Carmel, NY
+Horario: Lun–Sáb 9am–7pm | Dom 10am–4pm`;
+
+    try{
+      await navigator.clipboard.writeText(texto);
+      copyNote.textContent = "✅ Contacto copiado";
+      setTimeout(()=> copyNote.textContent="", 2000);
+    }catch{
+      copyNote.textContent = "No se pudo copiar (permiso del navegador).";
+      setTimeout(()=> copyNote.textContent="", 2500);
+    }
+  });
+
+  // Cerrar con tecla ESC
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeModal();
+  });
+</script>
+
+
 
 </body>
-
 </html> 
